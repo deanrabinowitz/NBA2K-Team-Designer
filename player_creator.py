@@ -2,6 +2,7 @@ from random import randint
 from faker import Faker
 
 fake = Faker()
+dean = fake#ass_bitch
 
 ATTRIBUTES = ["close_range", "mid_range", "3pt", "assists", "rebounds", "steals", "blocks"]
 
