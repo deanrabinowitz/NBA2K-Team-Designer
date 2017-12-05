@@ -19,29 +19,29 @@ def player_solver(players, attribute_bounds):
 
 
 def team_solver(pg, sg, pf, sf, c, token_cap):
-    problem = const.Problem()
+    problem = Problem()
 
 
-players = [{
-    "name": "dean",
-    "3pt": 2,
-    "mid_range": 3,
-    "close_range": 4
-}, {
-    "name": "harland",
-    "3pt": 10,
-    "mid_range": 8,
-    "close_range": 8
-}, {
-    "name": "max",
-    "3pt": 4,
-    "mid_range": 4,
-    "close_range": 5
-}]
+# players = [{
+#     "name": "dean",
+#     "3pt": 2,
+#     "mid_range": 3,
+#     "close_range": 4
+# }, {
+#     "name": "harland",
+#     "3pt": 10,
+#     "mid_range": 10,
+#     "close_range": 10
+# }, {
+#     "name": "max",
+#     "3pt": 4,
+#     "mid_range": 4,
+#     "close_range": 5
+# }]
 
-constraints = {
-    "3pt": (0, 3),
-    "close_range": (3, 10)
-}
+# constraints = {
+#     "3pt": (0, 3),
+#     "close_range": (3, 10)
+# }
 
-print(player_solver(players, constraints))
+# print(player_solver(players, constraints))
