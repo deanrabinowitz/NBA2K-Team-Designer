@@ -1,25 +1,19 @@
 import constraint as const
 
-constraints = {"mid_range" : (2, 6), "close_range" : (4, 5)}
-
-x = "close_range"
-
-constraints[x][0] <= player.close_range <= constraints["close range"][1]
-constraints["mid range"]
-
 def player_solver(players, constraints):
 
-    def contraint_solver(attribute, range):
-
-
+    def create_constraint(attribute, bounds):
+        min_value, max_value = bounds
+        def constraint(player):
+            return max_value >= player[attribute] >= min_value
+        return constraint
 
     problem = const.Problem()
-    problem.addVariable("p", players)
+    problem.addVariable("player", players)
 
-
-    for attribute, range in constraints.items():
-
-        problem.addConstraint(contraint_solver(), )
+    for attribute, bounds in constraints.items():
+        constraint = create_constraint(attribute, bounds)
+        problem.addConstraint(constraint, ["player"])
 
     solutions = problem.getSolutions()
     return solutions
@@ -28,3 +22,27 @@ def player_solver(players, constraints):
 def team_solver(pg, sg, pf, sf, c, token_cap):
     problem = const.Problem()
 
+
+players = [{
+    "name": "dean",
+    "3pt": 2,
+    "mid_range": 3,
+    "close_range": 4
+}, {
+    "name": "harland",
+    "3pt": 10,
+    "mid_range": 8,
+    "close_range": 8
+}, {
+    "name": "max",
+    "3pt": 4,
+    "mid_range": 4,
+    "close_range": 5
+}]
+
+constraints = {
+    "3pt": (0, 3),
+    "close_range": (3, 10)
+}
+
+print(player_solver(players, constraints))
