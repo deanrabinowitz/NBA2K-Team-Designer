@@ -1,6 +1,6 @@
-import constraint as const
+from constraint import Problem
 
-def player_solver(players, constraints):
+def player_solver(players, attribute_bounds):
 
     def create_constraint(attribute, bounds):
         min_value, max_value = bounds
@@ -8,15 +8,14 @@ def player_solver(players, constraints):
             return max_value >= player[attribute] >= min_value
         return constraint
 
-    problem = const.Problem()
+    problem = Problem()
     problem.addVariable("player", players)
 
-    for attribute, bounds in constraints.items():
+    for attribute, bounds in attribute_bounds.items():
         constraint = create_constraint(attribute, bounds)
         problem.addConstraint(constraint, ["player"])
 
-    solutions = problem.getSolutions()
-    return solutions
+    return problem.getSolutions()
 
 
 def team_solver(pg, sg, pf, sf, c, token_cap):
