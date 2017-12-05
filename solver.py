@@ -18,7 +18,7 @@ def player_solver(players, attribute_bounds):
     return problem.getSolutions()
 
 
-def team_solver(all_players, max_tokens):
+def team_solver(all_players, max_overall):
 
     problem = Problem()
     for position in all_players:
@@ -26,8 +26,8 @@ def team_solver(all_players, max_tokens):
 
     def constraint(pg, sg, sf, pf, c):
         team_overall = pg['overall'] + sg['overall'] + sf['overall'] + pf['overall'] + c['overall']
-        return team_overall <= max_tokens
-    
+        return team_overall <= max_overall
+
     problem.addConstraint(constraint)
 
     return problem.getSolutions()
