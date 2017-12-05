@@ -1,7 +1,10 @@
 import React from "react";
+import PlayerCreator from "./PlayerCreator";
 
 export default class App extends React.Component {
     render() {
-        return <p>Hello react</p>;
+        return (
+            <PlayerCreator />
+        );
     }
 }
