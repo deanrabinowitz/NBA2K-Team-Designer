@@ -13,7 +13,7 @@ attribute_bounds = {
 solution_players = {position: player_solver(players[position], attribute_bounds) for position in POSITIONS}
 for position, player_list in solution_players.items():
     for index, player in enumerate(player_list):
-        player_list[index] = player['player']
+        player_list[index] = player["player"]
 
 solution_teams = team_solver(solution_players, 200)
 team = choice(solution_teams)
