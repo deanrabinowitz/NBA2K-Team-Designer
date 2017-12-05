@@ -8,11 +8,15 @@ class Player:
     'advanced statistics' for the solver, we will have to determine
     an appropriate and realistic evaluation for the advanced stats.
     """
-    def __init__(self):
-        print("Created a new player")
 
-    # All subject to change... see docstring above.
-    def __slots__(self):
+    __slots__ = ['name', 'position', 'age', 'team', 'games_played',
+                 'games_started', 'minutes_per_game', 'field_goal_percentage',
+                 'three_point_percentage', 'effective_field_goal_percentage',
+                 'free_throw_percentage', 'offensive_rebounds',
+                 'defensive_rebounds', 'total_rebounds', 'assists', 'steals',
+                 'blocks', 'turnovers', 'fouls', 'points']
+
+    def __init__(self):
         self.name = None
         self.team = None
         self.position = None
@@ -33,3 +37,5 @@ class Player:
         self.turnovers = None
         self.fouls = None
         self.points = None
+
+
