@@ -1,4 +1,6 @@
+import sys
 from flask import Flask
+sys.path.append("..")
 app = Flask(__name__)
 
 @app.route("/")
