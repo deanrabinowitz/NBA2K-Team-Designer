@@ -18,7 +18,8 @@ while True:
         player = {}
         player['name'] = cells[0].a.text
         player['overall'] = cells[1].span.text
-        player['position'] = cells[2].span.text.replace(u'\ufeff', '')
+        player['position'] = cells[2].span.text
+        # player['position'] = cells[2].span.text.replace(u'\ufeff', '')
         player['inside'] = cells[3].span.text
         player['outside'] = cells[4].span.text
         player['playmaking'] = cells[5].span.text
@@ -39,7 +40,7 @@ while True:
     i = i + 1
 
 
-with open('players.csv', 'w', newline='') as csvfile:
+with open('players.csv', 'w', newline='', encoding='utf-8') as csvfile:
     fieldnames = ['name', 'overall', 'position', 'inside', 'outside', 'playmaking', 'athleticism', 'defense',
                     'rebounding', 'height']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
