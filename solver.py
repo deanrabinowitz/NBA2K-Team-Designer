@@ -1,5 +1,7 @@
 from constraint import Problem
 
+# POSITIONS = ["PG", "SG", "SF", "PF", "C"]
+
 
 def player_solver(players, attribute_bounds):
 
@@ -7,8 +9,12 @@ def player_solver(players, attribute_bounds):
         min_value, max_value = bounds
 
         def constraint(player):
-            return min_value <= player[attribute] <= max_value
+            return min_value <= player[attribute]
         return constraint
+
+        # def constraint(player):
+        #     return min_value <= player[attribute] <= max_value
+        # return constraint
 
     problem = Problem()
     problem.addVariable("player", players)
@@ -27,12 +33,14 @@ def team_solver(all_players, max_overall):
         problem.addVariable(position, all_players[position])
 
     def constraint(pg, sg, sf, pf, c):
-        team_overall = pg['overall'] + sg['overall'] + sf['overall'] + pf['overall'] + c['overall']
+        team_overall = pg['player']['overall'] + sg['player']['overall'] + \
+                       sf['player']['overall'] + pf['player']['overall'] + \
+                       c['player']['overall']
         return team_overall <= max_overall
 
     problem.addConstraint(constraint)
 
-    return problem.getSolutions()
+    return problem.getSolution()
 
 
 def reify(soft_constraints):

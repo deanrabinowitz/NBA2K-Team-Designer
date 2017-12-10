@@ -1,0 +1,42 @@
+{
+  "PG": {
+    "inside": "average",
+    "outside": "average",
+    "playmaking": "average",
+    "athleticism": "average",
+    "defense": "average",
+    "rebounding": "average"
+  },
+  "SG": {
+    "inside": "average",
+    "outside": "average",
+    "playmaking": "average",
+    "athleticism": "average",
+    "defense": "average",
+    "rebounding": "average"
+  },
+  "SF": {
+    "inside": "average",
+    "outside": "average",
+    "playmaking": "average",
+    "athleticism": "average",
+    "defense": "average",
+    "rebounding": "average"
+  },
+  "PF": {
+    "inside": "average",
+    "outside": "average",
+    "playmaking": "average",
+    "athleticism": "average",
+    "defense": "average",
+    "rebounding": "average"
+  },
+  "C": {
+    "inside": "average",
+    "outside": "average",
+    "playmaking": "average",
+    "athleticism": "average",
+    "defense": "average",
+    "rebounding": "average"
+  }
+}
