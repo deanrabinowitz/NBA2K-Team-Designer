@@ -5,6 +5,7 @@ fake = Faker()
 
 ATTRIBUTES = ["close_range", "mid_range", "3pt", "assists", "rebounds", "steals", "blocks"]
 
+
 def create_random_players(amount):
     players = []
     for i in range(amount):

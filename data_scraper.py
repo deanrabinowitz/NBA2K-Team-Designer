@@ -41,8 +41,8 @@ while True:
 
 
 with open('players.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    fieldnames = ['name', 'overall', 'position', 'inside', 'outside', 'playmaking', 'athleticism', 'defense',
-                    'rebounding', 'height']
+    fieldnames = ['name', 'overall', 'position', 'inside', 'outside',
+                  'playmaking', 'athleticism', 'defense', 'rebounding', 'height']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for player in players:
