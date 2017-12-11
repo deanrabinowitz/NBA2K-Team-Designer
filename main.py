@@ -8,13 +8,31 @@ POSITIONS = ["PG", "SG", "SF", "PF", "C"]
 ATTRIBUTES = ['inside', 'outside', 'playmaking',
               'athleticism', 'defense', 'rebounding']
 
+def team_printer(satisfactory_team):
+
+    #Logical order when naming positions
+    order = ['PG', 'SG', 'SF', 'PF', 'C']
+
+    for position in order:
+        print("Position: ", position)
+        print("\tName:", satisfactory_team[position]['player']['name'])
+        print("\tOverall:", str(satisfactory_team[position]['player']['overall']) + 'th', 'percentile')
+        print("\tAthleticism:", str(satisfactory_team[position]['player']['athleticism']) + 'th', 'percentile')
+        print("\tDefense:", str(satisfactory_team[position]['player']['defense']) + 'th', 'percentile')
+        print("\tInside:", str(satisfactory_team[position]['player']['inside']) + 'th', 'percentile')
+        print("\tOutside:", str(satisfactory_team[position]['player']['outside']) + 'th', 'percentile')
+        print("\tPlaymaking:", str(satisfactory_team[position]['player']['playmaking']) + 'th', 'percentile')
+        print("\tRebounding:", str(satisfactory_team[position]['player']['rebounding']) + 'th', 'percentile')
+        print()
+
+
 ########################### INITIALIZE PLAYER DICTS ###########################
 
 player_lists = get_player_lists()
 
 ########################### INITIALIZE CONSTRAINTS ############################
 
-json_file = open("team_constraints")
+json_file = open("team_constraints.json")
 json_str = json_file.read()
 soft_constraints = json.loads(json_str)
 # soft_constraints = {}
@@ -39,4 +57,4 @@ satisfactory_teams = team_solver(satisfactory_players, token_cap)
 if not satisfactory_teams:
     print("No teams found, please adjust your requirements")
 else:
-    pprint(choice(satisfactory_teams))
+    team_printer(choice(satisfactory_teams))
