@@ -37,6 +37,3 @@ def get_player_lists():
             player_lists[position].append(player)
 
     return player_lists
-
-my_list = get_player_lists()
-print(my_list["PG"][0])

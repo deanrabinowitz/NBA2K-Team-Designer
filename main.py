@@ -1,4 +1,4 @@
-from solver import player_solver, team_solver, reify
+from solver import player_solver, team_solver, harden_constraints
 from data_processor import get_player_lists
 from random import choice
 import json
@@ -16,7 +16,7 @@ player_lists = get_player_lists()
 
 json_file = open("team_constraints")
 json_str = json_file.read()
-hard_constraints = json.loads(json_str)
+soft_constraints = json.loads(json_str)
 # soft_constraints = {}
 
 ############################### SOLVE PLAYERS #################################
@@ -25,9 +25,9 @@ satisfactory_players = {}
 
 for position in POSITIONS:
     # soft_constraints[position] = reify(hard_constraints[position])
-    soft_constraints = reify(hard_constraints[position])
+    hard_constraints = harden_constraints(soft_constraints[position])
     satisfactory_players[position] = player_solver(
-        player_lists[position], soft_constraints)
+        player_lists[position], hard_constraints)
 
 ################################# SOLVE TEAM ##################################
 
@@ -36,19 +36,7 @@ token_cap = int(input())
 
 satisfactory_teams = team_solver(satisfactory_players, token_cap)
 
-pprint(satisfactory_teams)
-
-# solution_players = {position: player_solver(players[position], attribute_bounds) for position in POSITIONS}
-# for position, player_list in solution_players.items():
-#     for index, player in enumerate(player_list):
-#         player_list[index] = player["player"]
-#
-# solution_teams = team_solver(solution_players, 200)
-# team = choice(solution_teams)
-# team_overall = 0
-# for player in team.values():
-#     team_overall += player["overall"]
-#
-# print(team_overall)
-# print(len(solution_teams))
-# print(team)
+if not satisfactory_teams:
+    print("No teams found, please adjust your requirements")
+else:
+    pprint(choice(satisfactory_teams))

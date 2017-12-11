@@ -1,4 +1,5 @@
 from constraint import Problem
+from random import choice
 
 # POSITIONS = ["PG", "SG", "SF", "PF", "C"]
 
@@ -40,10 +41,10 @@ def team_solver(all_players, max_overall):
 
     problem.addConstraint(constraint)
 
-    return problem.getSolution()
+    return problem.getSolutions()
 
 
-def reify(soft_constraints):
+def harden_constraints(soft_constraints):
     bounds = {"poor": (0, 20), "fair": (21, 40), "average": (41, 60),
               "good": (61, 80), "excellent": (81, 100)}
     hard_constraints = {}
