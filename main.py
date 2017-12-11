@@ -35,14 +35,12 @@ player_lists = get_player_lists()
 json_file = open("team_constraints.json")
 json_str = json_file.read()
 soft_constraints = json.loads(json_str)
-# soft_constraints = {}
 
 ############################### SOLVE PLAYERS #################################
 
 satisfactory_players = {}
 
 for position in POSITIONS:
-    # soft_constraints[position] = reify(hard_constraints[position])
     hard_constraints = harden_constraints(soft_constraints[position])
     satisfactory_players[position] = player_solver(
         player_lists[position], hard_constraints)
