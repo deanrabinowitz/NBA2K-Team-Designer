@@ -1,41 +1,41 @@
 {
   "PG": {
-    "inside": "average",
+    "inside": "fair",
     "outside": "excellent",
     "playmaking": "excellent",
-    "athleticism": "average",
+    "athleticism": "fair",
     "defense": "average",
-    "rebounding": "average"
+    "rebounding": "poor"
   },
   "SG": {
     "inside": "average",
-    "outside": "average",
-    "playmaking": "average",
+    "outside": "good",
+    "playmaking": "poor",
     "athleticism": "good",
-    "defense": "average",
-    "rebounding": "average"
+    "defense": "good",
+    "rebounding": "poor"
   },
   "SF": {
     "inside": "average",
     "outside": "average",
-    "playmaking": "average",
+    "playmaking": "poor",
     "athleticism": "good",
     "defense": "good",
     "rebounding": "average"
   },
   "PF": {
-    "inside": "average",
-    "outside": "average",
-    "playmaking": "average",
-    "athleticism": "average",
+    "inside": "good",
+    "outside": "poor",
+    "playmaking": "poor",
+    "athleticism": "fair",
     "defense": "average",
     "rebounding": "good"
   },
   "C": {
-    "inside": "average",
-    "outside": "average",
-    "playmaking": "average",
-    "athleticism": "average",
+    "inside": "good",
+    "outside": "poor",
+    "playmaking": "poor",
+    "athleticism": "fair",
     "defense": "good",
     "rebounding": "excellent"
   }

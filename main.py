@@ -8,21 +8,15 @@ POSITIONS = ["PG", "SG", "SF", "PF", "C"]
 ATTRIBUTES = ['inside', 'outside', 'playmaking',
               'athleticism', 'defense', 'rebounding']
 
-def team_printer(satisfactory_team):
+def team_printer(team):
 
-    #Logical order when naming positions
-    order = ['PG', 'SG', 'SF', 'PF', 'C']
-
-    for position in order:
+    for position in POSITIONS:
         print("Position: ", position)
-        print("\tName:", satisfactory_team[position]['player']['name'])
-        print("\tOverall:", str(satisfactory_team[position]['player']['overall']) + 'th', 'percentile')
-        print("\tAthleticism:", str(satisfactory_team[position]['player']['athleticism']) + 'th', 'percentile')
-        print("\tDefense:", str(satisfactory_team[position]['player']['defense']) + 'th', 'percentile')
-        print("\tInside:", str(satisfactory_team[position]['player']['inside']) + 'th', 'percentile')
-        print("\tOutside:", str(satisfactory_team[position]['player']['outside']) + 'th', 'percentile')
-        print("\tPlaymaking:", str(satisfactory_team[position]['player']['playmaking']) + 'th', 'percentile')
-        print("\tRebounding:", str(satisfactory_team[position]['player']['rebounding']) + 'th', 'percentile')
+        print("\tname: {}".format(team[position]['player']['name']))
+        print("\toverall: {}th percentile".format(int(round(team[position]['player']['overall']))))
+        for attribute in ATTRIBUTES:
+            attr_value = int(round(team[position]['player'][attribute]))
+            print("\t{}: {}th percentile".format(attribute, attr_value))
         print()
 
 
